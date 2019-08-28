@@ -2,7 +2,7 @@ open ReactNative;
 let styles =
   Style.(
     StyleSheet.create({
-      "buttons": style(~flexDirection=`row, ~padding=8.->dp, ()),
+      "buttons": style(~flexDirection=`column, ~padding=8.->dp, ()),
       "button": style(~margin=8.->dp, ()),
     })
   );
@@ -31,33 +31,39 @@ module Counter =
     type value = counter;
     let useHook = useCounter;
   });
+
 module CounterDisplay = {
   [@react.component]
   let make = () => {
     let counter = Counter.useContainer();
-    <View
-      style=Style.(
+    // <View style=styles##buttons>
+    <View style=Style.(
         style(~flex=1., ~alignItems=`center, ~justifyContent=`center, ())
       )>
-      <View style=Style.(style(~width=100.->dp, ~height=50.->dp, ()))>
-        <Button title="-" onPress={_ => counter.decrement()} />
-      </View>
+      <Paper.IconButton
+        mode=`contained
+        onPress={_ => counter.decrement()}
+        style=styles##button
+        icon="remove"
+      />
       <Text style=Style.(style(~fontSize=50., ()))>
         {React.string(string_of_int(counter.count))}
       </Text>
-      <View style=Style.(style(~width=100.->dp, ~height=50.->dp, ()))>
-        <Button title="+" onPress={_ => counter.increment()} />
-      </View>
-      <PaperButton
+      <Paper.IconButton
         mode=`contained
-        onPress={_ => counter.reset()}
+        onPress={_ => counter.increment()}
         style=styles##button
-      >"Reset"->React.string</PaperButton>
+        icon="add"
+      />
+      <Paper.Button
+        mode=`contained onPress={_ => counter.reset()} style=styles##button>
+        "Reset"->React.string
+      </Paper.Button>
     </View>;
   };
 };
 
-module HomeScreen = {
+module App = {
   [@react.component]
   let make = () =>
     <Counter.Provider>
@@ -67,4 +73,4 @@ module HomeScreen = {
 };
 
 [@react.component]
-let make = () => <HomeScreen />;
+let make = () => <App />;

@@ -1,7 +1,7 @@
 open ReactNavigation;
 
 open ReactNative;
-module Button = PaperButton;
+module Button = Paper.Button;
 let styles =
   Style.(
     StyleSheet.create({
