@@ -8,7 +8,7 @@
     "reason-react",
     "reason-react-native",
     "reason-react-navigation",
-     "reason-expo"
+    "reason-expo"
     ],
   "sources": [
     {

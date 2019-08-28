@@ -1,3 +1,10 @@
+/**
+ * `NavigationEvent with focus` Demo React Native Module
+ * https://reactnavigation.org/
+ *
+ * Converted to reasonml from https://reactnavigation.org/docs/en/with-navigation-focus.html#example
+ *
+ */
 // see: https://reactnavigation.org/docs/en/with-navigation-focus.html#example
 // import React from 'react';
 // import { Text } from 'react-native';
