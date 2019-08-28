@@ -1,3 +1,11 @@
+/**
+ * Demo `Sharing common `navigationOptions` across screens` React Navigation Module
+ * https://reactnavigation.org/
+ *
+ * Converted to reasonml from https://reactnavigation.org/docs/en/headers.html#sharing-common-navigationoptions-across-screens
+ *
+ */
+
 open ReactNative;
 open ReactNavigation;
 external unsafeCast: ReactNavigation.NavigationOptions.t => 'a = "%identity";
@@ -136,8 +144,7 @@ module DetailsScreen = {
   });
 };
 
-module RootStack = {
-  let routes = {
+let routes = {
     "Home": {
       screen: HomeScreen.make,
     },
@@ -157,48 +164,3 @@ let defaultNavigationOptions = {
         (),
       );
     let navigator = StackNavigator.(makeWithConfig(routes, configOptions));
-};
-  let routes = {
-    "Home": {
-      screen: HomeScreen.make,
-    },
-    "Details": {
-      screen: DetailsScreen.make,
-    },
-  };
-let defaultNavigationOptions = {
-      "headerTintColor": "#fff",
-      "headerStyle": Style.(style(~backgroundColor="#f4511e", ())),
-      "headerTitleStyle": Style.(style(~fontWeight=`bold, ())),
-    };
-    let configOptions =
-      StackUtils.config(
-        ~initialRouteName="Home",
-        ~defaultNavigationOptions,
-        (),
-      );
-    let navigator = StackNavigator.(makeWithConfig(routes, configOptions));
-// module AppContainer =
-//   AppContainer.Make({
-//     type screenProps = {. "someProp": int};
-//     let routes = RootStack.routes;
-//     let defaultNavigationOptions = {
-//       "headerTintColor": "#fff",
-//       "headerStyle": Style.(style(~backgroundColor="#f4511e", ())),
-//       "headerTitleStyle": Style.(style(~fontWeight=`bold, ())),
-//     };
-//     let configOptions =
-//       StackUtils.config(
-//         ~initialRouteName="Home",
-//         ~defaultNavigationOptions,
-//         (),
-//       );
-//     let navigator = StackNavigator.(makeWithConfig(routes, configOptions));
-//   });
-
-// [@react.component]
-// let make = () => {
-//   // include RootStack;
-//   let app = () => RootStack.navigator;
-//   <Counter.Provider initialState=0> {RootStack.navigator} </Counter.Provider>
-//   };

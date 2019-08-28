@@ -3,7 +3,7 @@ module Button = {
   external make:
     (
       ~mode: [@bs.string] [ | `text | `outlined | `contained],
-      ~onPress: unit => unit,
+      ~onPress: unit => unit=?,
       ~color: string=?,
       ~icon: string=?,
       ~style: ReactNative.Style.t,

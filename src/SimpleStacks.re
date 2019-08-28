@@ -19,13 +19,13 @@ module ArticleScreen = {
       <View style=styles##buttons>
         <Button
           mode=`contained
-          onPress={_event => navigation->Navigation.navigate("Albums")}
+          onPress={_ => navigation->Navigation.navigate("Albums")}
           style=styles##button>
           "Push album"->React.string
         </Button>
         <Button
           mode=`outlined
-          onPress={_event => navigation->Navigation.goBack}
+          onPress={_ => navigation->Navigation.goBack}
           style=styles##button>
           "Go back"->React.string
         </Button>
@@ -62,8 +62,10 @@ module AlbumsScreen = {
   };
 };
 
-module RootStack = {
-  let routes = {
+module AppContainer =
+  AppContainer.Make({
+    type screenProps = {. "someProp": int};
+    let routes = {
     "Albums": {
       screen: AlbumsScreen.make,
     },
@@ -71,17 +73,6 @@ module RootStack = {
       screen: ArticleScreen.make,
     },
   };
-};
-
-module AppContainer =
-  AppContainer.Make({
-    type screenProps = {. "someProp": int};
-    let routes = RootStack.routes;
-    // let defaultNavigationOptions = {
-    //   "headerTintColor": "#fff",
-    //   "headerStyle": Style.(style(~backgroundColor="#f4511e", ())),
-    //   "headerTitleStyle": Style.(style(~fontWeight=`bold, ())),
-    // };
     let configOptions =
       StackUtils.config(
         ~initialRouteName="Albums",
