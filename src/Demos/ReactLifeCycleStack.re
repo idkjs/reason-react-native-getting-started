@@ -4,6 +4,7 @@ module ComponentDidMountDemo = {
   [@react.component]
   let make = (~name: string) => {
     let (counter, setCounter) = React.useState(() => 0);
+    Js.log(name);
     // this useEffect ignores passed in prop `name`
     // Enter any thing you want to enter in componentDidMount.
     React.useEffect1(

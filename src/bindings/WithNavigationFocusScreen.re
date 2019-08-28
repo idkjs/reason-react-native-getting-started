@@ -9,7 +9,6 @@
 //   }
 // }
 open ReactNative;
-open ReactNavigation;
 module FocusStateLabel = {
   [@react.component]
   let make = (~isFocused: bool) => {
