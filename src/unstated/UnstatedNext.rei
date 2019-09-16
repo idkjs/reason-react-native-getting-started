@@ -1,3 +1,4 @@
+// https://github.com/Raincal/re-unstated-next
 module type Config = {
   type state;
   type value;

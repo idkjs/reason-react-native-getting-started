@@ -6,10 +6,13 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "build": "bsb -make-world -clean-world",
-    "watch": "bsb -make-world -clean-world -w"
+    "watch": "bsb -make-world -clean-world -w",
+    "docustart": "docusaurus-start",
+    "docubuild": "docusaurus-build",
+    "deploy": "gh-pages -d docs"
   },
   "dependencies": {
-    "bs-platform": "5.0.6",
+    "bs-platform": "6.1.0",
     "bs-react-markdown": "0.0.9",
     "expo": "^34.0.3",
     "expo-linear-gradient": "^5.0.1",
@@ -29,7 +32,9 @@
     "reason-react-navigation": "3.11.0-alpha.0"
   },
   "devDependencies": {
-    "babel-preset-expo": "^6.0.0"
+    "babel-preset-expo": "^6.0.0",
+    "docusaurus": "1.13.0",
+    "gh-pages": "2.1.1"
   },
   "private": true
 }

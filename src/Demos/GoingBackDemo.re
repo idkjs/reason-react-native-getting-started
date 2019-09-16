@@ -46,7 +46,7 @@ onPress={() => this.props.navigation.push('Details')}
     </Screen>;
   };
 };
-/*  There is no `initialScreenName config on `StackNavigator` in reason.
+/**  There is no `initialScreenName config on `StackNavigator` in reason.
 
 The initial screen is the first item in you array, here `Home`. Flip them around to see `Details` rendered first
     // let navigator =
